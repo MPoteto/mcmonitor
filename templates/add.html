@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>xMonitoring | Добавление</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap" rel="stylesheet">
+        <style>
+body {
+    text-align: center;
+    font-family: 'Rubik', sans-serif;
+}
+
+.link {
+    text-decoration: none;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 5px;
+    margin-right: 20px;
+}
+.active {
+    border: 1px solid lightblue;
+}
+.servers {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.server {
+    width: calc(33.33%); 
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.server-name {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.server-ip {
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 3px;
+    margin-top: 10px;
+}
+.sv {
+    width: 400px;
+    height: 30px;
+    border: 1px solid gray;
+    border-radius: 10px;
+}
+::placeholder {
+    text-align: center; /* Выравнивание текста placeholder по центру */
+    font-size: 15px;
+}
+.sv:hover {
+    border: 1px solid lightblue;
+}
+.button {
+    border: 1px solid gray;
+    border-radius: 10px;
+    padding: 10px;
+    width: 200px;
+    margin-top: 10px;
+    color: gray;
+}
+.button:hover {
+    border: 1px solid lightblue;
+}
+.hidden {
+    visibility: hidden;
+}
+        </style>
+    </head>
+    <body>
+        <h1>Майнкрафт Мониторинг</h1>
+        <a class="link active" href="/add">Добавить Сервер</a>
+        <a class="link" href="/new">Новые Сервера</a>
+        <a class="link" href="/">Главная</a>
+        <br><br><br><br>
+        <form action="/add" method="POST">
+            <input class="nm sv" name="nm" id="nm" type="text" placeholder="Название Сервера" required><br><br>
+            <input class="ip sv" name="ip" id="ip" type="text" placeholder="Айпи Сервера" required><br><br>
+            <input class="ds sv" name="ds" id="ds" type="text" placeholder="Небольшое описание" required><br><br>
+
+            <input class="button" type="submit">
+        </form>
+        <div class="message" class="hidden">
+            <h1>{{ title }}</h1>
+            <p>{{ message }}</p>
+        </div>
+        <script>
+            t = "{{ title }}"
+            if (t != "None") {
+                document.getElementsByClassName("message").classList.remove('hidden');
+            }
+            </script>
+    </body>
+</html>

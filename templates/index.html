@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>xMonitoring | Главная</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap" rel="stylesheet">
+        <style>
+body {
+    text-align: center;
+    font-family: 'Rubik', sans-serif;
+}
+.link {
+    text-decoration: none;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 5px;
+    margin-right: 20px;
+}
+.active {
+    border: 1px solid lightblue;
+}
+.servers {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.server {
+    width: calc(33.33%); 
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.server-name {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.server-ip {
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 3px;
+    margin-top: 10px;
+}
+
+        </style>
+    </head>
+    <body>
+        <h1>Майнкрафт Мониторинг</h1>
+        <a class="link" href="/add">Добавить Сервер</a>
+        <a class="link" href="/new">Новые Сервера</a>
+        <a class="link active" href="/">Главная</a>
+        <br><br><br><br>
+        <div class="servers">
+                {% for server in servers %}
+                    <div class="server">
+                        <h2 class="server-name">{{ server[0] }}</h2>
+                        <p class="server-ip">{{ server[1] }}</p>
+                        <p class="server-description">{{ server[2] }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+        </body>
+</html>
